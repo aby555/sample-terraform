@@ -8,7 +8,7 @@ output "ami" {
   value = data.aws_ami.centos.image_id
 }
 resource "aws_instance" "frontend" {
-  ami           = "ami-0b5a2b5b8f2be4ec2"
+  ami           = data.aws_ami.centos.image_id
   instance_type = "t3.micro"
   tags = {
     Name = "frontend"
@@ -21,14 +21,14 @@ output "frontend" {
 
 
 resource "aws_instance" "mysql" {
-  ami           = "ami-0b5a2b5b8f2be4ec2"
+  ami           = data.aws_ami.centos.image_id
   instance_type = "t3.micro"
   tags = {
     Name = "mysql"
   }
 }
 resource "aws_instance" "mongodb" {
-  ami           = "ami-0b5a2b5b8f2be4ec2"
+  ami           = data.aws_ami.centos.image_id
   instance_type = "t3.micro"
   tags = {
     Name = "mongodb"
